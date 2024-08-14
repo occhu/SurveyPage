@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Coding survey</title>
+        <meta charset="UTF-8">
+       <link rel="stylesheet" href="SurveyProva.css" />
+
+    </head>
+
+    <body>
+        <h1 id="title">Simple survey about CODING stuff</h1>
+
+        <p id="description">Thank you for taking the time to help US</p>
+        <form id="form">
+            <div class="input-element">
+            <label for="name">
+            Insert your name 
+             <input placeholder="name" id="name" type="text" required>
+                
+            </label>
+        </div>
+        <div class="input-elemnt">
+            <label for="email">
+            Insert your email
+            <input placeholder="email" id="email" type="email" required>
+
+        </div>
+
+
+        <div class="input-element">
+            <label for="age">
+                Insert your age
+            <input placeholder="age" id="age" type="number" min="5" max="100" required>
+       </div>
+
+        <div class="input-element">
+            <label id="select-label">
+                What's your favorite programming language?
+            <select id="dropdown">
+                <option>C#</option>
+                <option>C</option>
+                <option>C++</option>
+                <option>Java</option>
+                <option>Javascript</option>
+                <option>Phyton</option>
+
+            </select>
+
+        </label>
+
+        </div>
+        <div>
+            Do you like coding?
+            <label><input type="radio" name="opzione" >YES</label>
+
+            <label><input type="radio" name="opzione" >NO</label>
+        </div>
+
+        <div>
+           Do you struggle with coding?
+            <label for="opzione1"><input type="checkbox" id="opzione1" name="opzione" value="1" onclick="onlyOne(this)">YES</label>
+
+            <label for="opzione2"><input type="checkbox" id="opzione2" name="opzione" value="2" onclick="onlyOne(this)">NO</label>
+        </div>
+        <div class="input-element">
+            <label>Additional your thoughts abaout coding work</label>
+            <textarea type="text" rows="10" cols="40"></textarea>
+        </div>
+        <div>
+            <button type="submit" id="submit">Submit</buttom>
+        </div>
+
+        </form>
+        <script>
+            /*
+            Questo metodo OnlyOne serve per rendere spuntata solo una 
+            checkboxs e non più di una.
+            LOGICA: 
+            Dichiaro la funzione onlyOne,
+            Dopo avere dichiarato una variabile di lavoro 
+            estraggo con la funzione document.getElementByname
+            tutti i NAME == opzione, mi restituisce una NodeList (una sorta di array)
+            Vado poi ad iterare con il ciclo forEach tutte le checkbox della NodeList
+            poi effettuo un controllo e vedo se la checkbox nella lista è diversa da quella
+            selezionata, se è diversa da quella selezionata viene messo a FALA.
+    
+            */
+            function onlyOne(checkbox){
+             var checkboxes = document.getElementsByName('opzione');
+             checkboxes.forEach((item) => {
+                if (item !== checkbox) item.checked = false;
+             });
+            }
+        </script>
+
+    </body>
+</html>
